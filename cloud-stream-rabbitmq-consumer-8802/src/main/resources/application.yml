@@ -1,0 +1,36 @@
+server:
+  port: 8802
+
+spring:
+  application:
+    name: cloud-stream-consumer
+  cloud:
+    stream:
+      default-binder: rabbit
+
+      bindings: #服务整合处理(绑定)
+         input: #通道的名字
+          destination: studyExchange  #要使用的Exchange名称
+          content-type: application/json
+          binder: rabbit
+          group: rabbitTest1
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+
+
+
+eureka:
+  client:
+    service-url:
+      #      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 2 #心跳间隔时间
+    lease-expiration-duration-in-seconds: 5 #
+    instance-id: receive-8802.com
+    prefer-ip-address: true #访问路径变为IP地址

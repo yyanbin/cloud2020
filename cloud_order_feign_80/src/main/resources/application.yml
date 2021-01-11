@@ -1,0 +1,29 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-order-service
+
+
+
+eureka:
+  client:
+    #表示自己注册到eureka
+    register-with-eureka: false
+    #入住到 eureka server, 集群为true才能配合ribbon使用负载均衡
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/  #eureka server 地址
+
+#ribbon的超时时间
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+
+logging:
+  level:
+#    com.springcloud.service.PaymentFeignService: debug
+    com.springcloud.service.*: debug
+
+

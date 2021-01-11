@@ -1,0 +1,16 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud_order_service
+
+eureka:
+  client:
+    #表示自己注册到eureka
+    register-with-eureka: false
+    #入住到 eureka server, 集群为true才能配合ribbon使用负载均衡
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka/ #eureka server 地址
+
