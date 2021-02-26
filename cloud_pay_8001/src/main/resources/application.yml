@@ -20,6 +20,11 @@ eureka:
 spring:
   application:
     name: cloud-payment-service
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1
   datasource:
     druid:
       kill-when-socket-read-timeout: false
