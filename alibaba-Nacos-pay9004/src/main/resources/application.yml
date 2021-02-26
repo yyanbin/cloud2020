@@ -1,0 +1,22 @@
+server:
+  port: 9004
+
+spring:
+  application:
+    name: nacos-payment-provider
+  cloud:
+    nacos:
+      discovery:
+        #nacos（注册中心）服务的地址
+        server-addr: localhost:8848
+#    sentinel:
+#      transport:
+#        #sentinel服务地址
+#        dashboard: localhost:8080
+#        #端口被占用时自动 8719开始一次+1扫描，直到找到未被占用的端口
+#        port: 8719
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
